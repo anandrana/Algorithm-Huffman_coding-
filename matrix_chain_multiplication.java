@@ -11,23 +11,23 @@ class GFG {
         int[][] multiply=new int[n+1][n+1];
         
         int i,l,j,k,q;
-        for(i=1;i<n;i++)
+        for(i=0;i<n;i++)
             multiply[i][i]=0;
             
         
         // chain length
         
-        for(l=2;l<n;l++)
+        for(l=1;l<n-1;l++)
         {
-            for(i=1;i<n-l+1;i++)
+            for(i=1;i<n-l;i++)
             {
-                j=i+l-1;
+                j=i+l;
                 if(j==n)
                     continue;
                     
                 multiply[i][j]=Integer.MAX_VALUE;
                 
-                for(k=i;k<=j;k++)
+                for(k=i;k<=j-1;k++)
                 {
                     q=multiply[i][k]+multiply[k+1][j]+(array[i-1]*array[k]*array[j]);
                     
